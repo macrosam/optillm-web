@@ -1,18 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 
-const baseUrl =
-  process.env.OPTILLM_API_BASE_URL || "https://optillm-backend.onrender.com/v1";
+const baseUrl = "https://optillm.onrender.com/v1";
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_DUMMY_KEY || "dummy",
+
+const model = "gpt-4o-mini";
+
+({
+  : process.env.OPENAI_DUMMY_KEY || "dummy",
   baseURL: baseUrl,
 });
 
-const model = process.env.OPTILLM_MODEL || "moa-gpt-4o-mini";
-
-export async function POST(req: NextRequest) {
-  try {
+(req: NextRequest) 
     const { messages } = await req.json();
 
     const completion = await client.chat.completions.create({
